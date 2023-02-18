@@ -73,6 +73,12 @@ function check(i){
             p.innerHTML = "Points: "+points
             p.classList.add("p")
             document.getElementById("body").appendChild(p)
+
+            const bt = document.createElement("button")
+            bt.setAttribute("onclick","window.location.reload()")
+            bt.innerHTML = "Play again"
+            bt.classList.add("p")
+            document.getElementById("body").appendChild(bt)
         }
     }
 }
