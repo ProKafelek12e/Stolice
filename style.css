@@ -96,3 +96,11 @@ body{
     text-align: center;
     margin-top: 50vh;
 }
+.p{
+    font-size: 300%;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}

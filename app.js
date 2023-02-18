@@ -13,34 +13,40 @@ function random(){
 }
 function countries(){
     document.getElementById("game").innerHTML = ""
-
     wylosowane = jsonc[random()]
-    console.log(wylosowane.capital)
-    //div
-    const div = document.createElement("div")
-    div.setAttribute("id","content")
-    //flag
-    const flag = document.createElement("img")
-    flag.setAttribute("id","flag")
-    flag.src = wylosowane.flags.svg
-    //name
-    const name = document.createElement("h1")
-    name.setAttribute("id","name")
-    name.innerHTML = wylosowane.name
-    //input
-    const input = document.createElement("input")
-    input.setAttribute("id","inp")
-    //button
-    const button = document.createElement("button")
-    button.innerHTML = "Check"
-    button.setAttribute("onclick",'check()')
-    button.setAttribute("id","check")
 
-    div.appendChild(flag)
-    div.appendChild(name)
-    div.appendChild(input)
-    div.appendChild(button)
-    document.getElementById("game").appendChild(div)
+    if(wylosowane.capital== undefined){
+
+        countries()
+    }
+    else{
+        console.log(wylosowane.capital)
+        //div
+        const div = document.createElement("div")
+        div.setAttribute("id","content")
+        //flag
+        const flag = document.createElement("img")
+        flag.setAttribute("id","flag")
+        flag.src = wylosowane.flags.svg
+        //name
+        const name = document.createElement("h1")
+        name.setAttribute("id","name")
+        name.innerHTML = wylosowane.name
+        //input
+        const input = document.createElement("input")
+        input.setAttribute("id","inp")
+        //button
+        const button = document.createElement("button")
+        button.innerHTML = "Check"
+        button.setAttribute("onclick",'check()')
+        button.setAttribute("id","check")
+
+        div.appendChild(flag)
+        div.appendChild(name)
+        div.appendChild(input)
+        div.appendChild(button)
+        document.getElementById("game").appendChild(div)
+    }
 }
 function check(i){
     if(document.getElementById("inp").value.toLowerCase()==wylosowane.capital.toLowerCase()){
@@ -60,9 +66,13 @@ function check(i){
             document.getElementById("body").innerHTML=""
             document.getElementById("body").classList.remove("body")
             const h1 = document.createElement("h1")
-            h1.innerHTML = "game over"
+            h1.innerHTML = "Game Over"
             h1.classList.add("go")
             document.getElementById("body").appendChild(h1)
+            const p = document.createElement("p")
+            p.innerHTML = "Points: "+points
+            p.classList.add("p")
+            document.getElementById("body").appendChild(p)
         }
     }
 }
