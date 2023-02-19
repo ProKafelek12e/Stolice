@@ -2,7 +2,7 @@ var jsonc = []
 var points = 0
 var hearts = 3
 var wylosowane
-const regg = [{n:"Africa",o:0},{n:"Americas",o:0},{n:"Asia",o:0},{n:"Europe",o:0},{n:"Oceania",o:0},]
+const regg = [{n:"Africa",o:1},{n:"Americas",o:1},{n:"Asia",o:1},{n:"Europe",o:1},{n:"Oceania",o:1},]
 async function getData(){
     const datac = await fetch("https://restcountries.com/v2/all")
     jsonc = await datac.json()
@@ -113,4 +113,9 @@ function che(){
             }
         }
     }
+}
+function start(){
+    document.getElementById("game").classList.remove("st")
+    document.getElementById("playBT").remove()
+    countries()
 }
