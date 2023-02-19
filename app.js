@@ -2,6 +2,7 @@ var jsonc = []
 var points = 0
 var hearts = 3
 var wylosowane
+const regg = [{n:"Africa",o:0},{n:"Americas",o:0},{n:"Asia",o:0},{n:"Europe",o:0},{n:"Oceania",o:0},]
 async function getData(){
     const datac = await fetch("https://restcountries.com/v2/all")
     jsonc = await datac.json()
@@ -12,14 +13,15 @@ function random(){
     return Math.floor(Math.random() * max)
 }
 function countries(){
-    document.getElementById("game").innerHTML = ""
     wylosowane = jsonc[random()]
-
+    che()
+    document.getElementById("game").innerHTML = ""
     if(wylosowane.capital== undefined){
 
         countries()
     }
     else{
+        console.log(wylosowane.region)
         console.log(wylosowane.capital)
         //div
         const div = document.createElement("div")
@@ -48,7 +50,7 @@ function countries(){
         document.getElementById("game").appendChild(div)
     }
 }
-function check(i){
+function check(){
     if(document.getElementById("inp").value.toLowerCase()==wylosowane.capital.toLowerCase()){
         points++
         document.getElementById("points").innerHTML = points
@@ -79,6 +81,36 @@ function check(i){
             bt.innerHTML = "Play again"
             bt.classList.add("p")
             document.getElementById("body").appendChild(bt)
+        }
+    }
+}
+function reg(){
+    document.getElementById("regs").innerHTML = ""
+    for(var i=0;i<=regg.length-1;i++){
+        const bt =document.createElement("button")
+        bt.innerHTML = regg[i].n
+        bt.classList.add("br")
+        bt.classList.add(`b${regg[i].o}`)
+        bt.setAttribute("onclick",`cot(${i})`)
+        document.getElementById("regs").appendChild(bt)
+    }
+}
+reg()
+function cot(i){
+    if(regg[i].o==0){
+        regg[i].o = 1
+    }
+    else{ 
+        regg[i].o = 0
+    }
+    reg()
+}
+function che(){
+    for(var i =0;i<=regg.length-1;i++){
+        if(wylosowane.region == regg[i].n){
+            if(regg[i].o==0){
+                countries()
+            }
         }
     }
 }
