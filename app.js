@@ -21,8 +21,7 @@ function countries(){
         countries()
     }
     else{
-        console.log(wylosowane.region)
-        console.log(wylosowane.capital)
+        console.log("Region: "+wylosowane.region+" Stolica: "+wylosowane.capital)
         //div
         const div = document.createElement("div")
         div.setAttribute("id","content")

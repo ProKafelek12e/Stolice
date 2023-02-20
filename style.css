@@ -1,7 +1,7 @@
 body{
     margin: 0px;
     
-    background-color:#343a40 ;
+    background-color:#D4A373 ;
 }
 .body{
     display: grid;
@@ -30,7 +30,8 @@ body{
 
     width: 100px;
     height: 100px;
-    background-color: aqua ;
+    background-color: #CCD5AE;
+    border-radius: 15px;
 }
 #hp{
     display: flex;
@@ -43,18 +44,21 @@ body{
     width: 140px;
     height: 260px;
     
-    background-color: aliceblue;
+    background-color: #FAEDCD;
+    border: #D0B49F solid 5px;
+    border-radius: 20px;
 }
 
 #game{
     padding: 50px;
 }
 #content{
-    width: 100%-50px;
+    width: 90%;
     height: 613px;
     padding: 25px;
-    border: tomato solid 2px;
+    border: #D0B49F solid 10px;
     border-radius: 45px;
+    background-color: #FAEDCD;
     
     display: grid;
     grid-template-columns: 70% 30%;
@@ -111,10 +115,10 @@ body{
     margin-bottom: 5px;
 }
 .b0{
-    background-color: aqua;
+    background-color: #F3E7E4;
 }
 .b1{
-    background-color: greenyellow;
+    background-color: #93ff96;
 }
 #playBT{
     align-self: center;
@@ -128,4 +132,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+button{
+    cursor: pointer;
 }
